@@ -5,12 +5,20 @@
     </head>
     <body>
         <form action="show.php">
-            First Name:<input type="text" name="fname"><br>
+            <label id="example">First Name:</label><input type="text" name="fname"><br>
             Last Name:<input type="text" name="lname"><br>
 
-            Gender: Male<input type="radio" name="gender" value="m">
-                    Female<input type="radio" name="gender" value="f">
+            Gender: Male<input type="radio" name="gender" value="m" checked>
+                    Female<input type="radio" name="gender" value="f"><br>
 
+            Status: <select name="status">
+                        <option value="0">Single</option>
+                        <option value="1">Marry Me!</option>
+                        <option value="2">Divorce</option>
+                    </select>
+
+            Hobby: <input type="checkbox" name="game" value="g">Games
+                   <input type="checkbox" name="book" value="b">Reading Books<br>
             <input type="submit" value="Send...">
         </form>
     </body>
