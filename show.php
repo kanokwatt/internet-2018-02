@@ -1,7 +1,9 @@
 <?php
 
-    $first_name = $_REQUEST['fname'];
+    $fname = $_REQUEST['fname'];
+    $lname = $_REQUEST['lname'];
+    $gender = $_REQUEST['gender'];
 
-    echo $first_name;
-
+    echo "Hi, " . $fname . "   " . $lname . "<br>" ;
+    echo "Gender: " . $gender;
 ?>
