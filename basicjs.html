@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script>
+                function showDetail() {
+    
+                    //alert(document.forms[0].elements[1].value);
+                    //alert(document.forms['myForm'].elements[1].value);
+                    document.getElementById('info').innerHTML = document.forms['myForm'].elements[0].value;
+                }
+        </script>
+    </head>
+    <body>
+        <form id="myForm">
+            <input type="text" name="fname" value="Kanokwatt" onkeyup="showDetail()">
+            <input type="submit" value="Send">
+        </form>
+        <button onclick="showDetail()">Show Detail</button>
+
+        <p id="info"></p>
+
+    </body>
+</html>
