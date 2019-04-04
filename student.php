@@ -16,12 +16,23 @@
     /********************/
     // 2. SELECT (SQL)
     /********************/
+    $find = "";
+    if(isset($_REQUEST['txtSearch'])) $find = $_REQUEST['txtSearch'];
+
     $sql = "SELECT STUDENT_ID, FIRST_NAME, LAST_NAME, DEPT_ID, PASSWORD FROM student";
+    $sql = $sql . " WHERE FIRST_NAME LIKE '%" . $find . "%'";
+
+    //echo $sql;
 
     /********************/
     // 3. EXECUTE (SQL)
     /********************/
     $result = mysqli_query($conn, $sql); 
+
+    echo "<form action='student.php'>";
+        echo "<input type='text' name='txtSearch'>";
+        echo "<input type='submit' value='ค้นหา'>";
+    echo "</form>";
 
     if (mysqli_num_rows($result) > 0) {
         // output data of each row
