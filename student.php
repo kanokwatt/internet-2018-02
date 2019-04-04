@@ -19,7 +19,8 @@
     $find = "";
     if(isset($_REQUEST['txtSearch'])) $find = $_REQUEST['txtSearch'];
 
-    $sql = "SELECT STUDENT_ID, FIRST_NAME, LAST_NAME, DEPT_ID, PASSWORD FROM student";
+    //$sql = "SELECT STUDENT_ID, FIRST_NAME, LAST_NAME, DEPT_ID, PASSWORD FROM student";
+    $sql = "SELECT STUDENT_ID, FIRST_NAME, LAST_NAME, student.DEPT_ID, DEPT_NAME, PASSWORD FROM student JOIN department ON student.DEPT_ID = department.DEPT_ID";
     $sql = $sql . " WHERE FIRST_NAME LIKE '%" . $find . "%'";
 
     //echo $sql;
@@ -42,7 +43,9 @@
                 echo "<td>FIRST_NAME</td>";
                 echo "<td>LAST_NAME</td>";
                 echo "<td>DEPT_ID</td>";
+                echo "<td>DEPT_NAME</td>";
                 echo "<td>PASSWORD</td>";
+                echo "<td>DELETE</td>";
             echo "</tr>";
         while($row = mysqli_fetch_assoc($result)) {
             echo "<tr>";
@@ -50,7 +53,9 @@
                 echo "<td>" . $row["FIRST_NAME"]. "</td>";
                 echo "<td>" . $row["LAST_NAME"]. "</td>";
                 echo "<td>" . $row["DEPT_ID"]. "</td>";
+                echo "<td>" . $row["DEPT_NAME"]. "</td>";
                 echo "<td>" . $row["PASSWORD"]. "</td>";
+                echo "<td><a href='delete.php?id=". $row["STUDENT_ID"] . "'>DELETE</a></td>";
             echo "</tr>";
         }
         echo "</table>";
