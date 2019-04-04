@@ -1,5 +1,16 @@
 <?php
 // student.php
+
+    /********************/
+    // Start using SESSION
+    /********************/
+    session_start();
+    
+    if(!isset($_SESSION['user'])) header("Location:login.php");
+
+    echo "Welcome, " . $_SESSION['user'];
+
+    /********************/
     require("connectDB.php");
 
     /********************/
@@ -38,4 +49,5 @@
     
     mysqli_close($conn);
 
+    echo "<a href='logout.php'>Logout</a>";
 ?>

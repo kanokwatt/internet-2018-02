@@ -1,6 +1,9 @@
 <?php
 // checkLogin.php
 
+// Start using SESSION
+session_start();
+
 /*************************/
 // STEP 1: CONNECT
 /*************************/
@@ -22,6 +25,10 @@ $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
     //echo "Login OK!";
+
+    $row = mysqli_fetch_assoc($result);
+    $_SESSION['user']=$row['FIRST_NAME'];
+
     header("Location: student.php");
 }
 else {
